@@ -1,2 +1,2 @@
-# owasp-juice-shop
-My solutions for OWASP Juice shop
+# OWASP Juice Shop
+My solutions for [OWASP Juice shop](https://github.com/bkimminich/juice-shop)
