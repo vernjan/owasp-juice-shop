@@ -79,11 +79,29 @@ Encode the URL (https://www.urlencoder.org/):
 
 Navigate to `/assets/public/images/uploads/%F0%9F%98%BC-%23zatschi-%23whoneedsfourlegs-1572600969477.jpg`
 
-![](Bjoern's%20cat.jpg)
+![](images/Bjoern's%20cat.jpg)
 
 
 ## Privacy Policy
 _Read our privacy policy._
 
-You must create an account first.
-Then navigate to _Account_ / _Privacy & Security_ / _Privacy Policy_.
+Log in, navigate to _Account_ / _Privacy & Security_ / _Privacy Policy_.
+
+## Zero Stars
+_Give a devastating zero-star feedback to the store._
+
+Log in and navigate to _Customer Feedback_ in the top left menu.
+
+![](images/customer-feedback.png)
+
+The easiest option is to use [Edit and Resend](https://superuser.com/questions/1112057/how-to-edit-parameters-sent-through-a-form-on-the-firebug-console/1112069) feature in Firefox.
+
+First, submit the form with arbitrary number of stars.
+
+Then, modify the request `POST /api/Feedbacks/` body like this:
+```
+{"UserId":18,"captchaId":4,"captcha":"-4","comment":"Hello (***njan2@mail)","rating":0}
+```
+
+Alternatively, use an intercepting proxy (such as [OWASP ZAP](https://owasp.org/www-project-zap/))
+and modify the request on the fly.
