@@ -96,9 +96,9 @@ Log in and navigate to _Customer Feedback_ in the top left menu.
 
 The easiest option is to use [Edit and Resend](https://superuser.com/questions/1112057/how-to-edit-parameters-sent-through-a-form-on-the-firebug-console/1112069) feature in Firefox.
 
-First, submit the form with arbitrary number of stars.
+First, submit the form with an arbitrary number of stars.
 
-Then, modify the request `POST /api/Feedbacks/` body like this:
+Then, modify `rating` value in the request `POST /api/Feedbacks/` body like this:
 ```
 {"UserId":18,"captchaId":4,"captcha":"-4","comment":"Hello (***njan2@mail)","rating":0}
 ```
@@ -113,9 +113,10 @@ Go to User Registration form (`/#/register`)
 
 ![](images/user-registration.png)
 
-Fill the password into _Password_ and _Repeat Password_) fields.
+Fill the password into _Password_ and _Repeat Password_ fields.
 
 If you change the password in the _Repeat Password_ field, the validation error `Passwords do not match` appears.
-So far so good. However, if you change the password in the _Password_ field, the validation succeeds.
+So far so good. However, if you change the password in the _Password_ field (assuming the password were the same
+before the change), then the validation succeeds.
 
 Submit the form with different passwords.
