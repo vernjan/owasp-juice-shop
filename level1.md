@@ -105,3 +105,17 @@ Then, modify the request `POST /api/Feedbacks/` body like this:
 
 Alternatively, use an intercepting proxy (such as [OWASP ZAP](https://owasp.org/www-project-zap/))
 and modify the request on the fly.
+
+## Repetitive Registration
+_Follow the DRY principle while registering a user._
+
+Go to User Registration form (`/#/register`)
+
+![](images/user-registration.png)
+
+Fill the password into _Password_ and _Repeat Password_) fields.
+
+If you change the password in the _Repeat Password_ field, the validation error `Passwords do not match` appears.
+So far so good. However, if you change the password in the _Password_ field, the validation succeeds.
+
+Submit the form with different passwords.
