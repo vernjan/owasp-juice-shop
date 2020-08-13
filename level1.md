@@ -5,7 +5,7 @@ _Find the carefully hidden 'Score Board' page._
 
 View page source code to get the list of JS files. One of them is `<script src="main-es2015.js" type="module">`.
 
-Go to `/main-es2015.js` and search for `score`. One of the results is
+Go to `/main-es2015.js` and search for `score`. One of the results is:
 ```
 ,{path:"score-board",component:Oo},
 ```
