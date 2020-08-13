@@ -109,7 +109,7 @@ and modify the request on the fly.
 ## Repetitive Registration
 _Follow the DRY principle while registering a user._
 
-Go to User Registration form (`/#/register`)
+Go to the _User Registration_ form (`/#/register`)
 
 ![](images/user-registration.png)
 
