@@ -72,6 +72,14 @@ The password is `admin123`.
 
 Log out and log in again with `admin@juice-sh.op` / `admin123`
 
+## View Basket
+_View another user's shopping basket._
+
+Log in and click on _Your Basket_. Observe that HTTP request `GET /rest/basket/1` is sent.
+Modify the request URL to `/rest/basket/2`.
+
+You can use the same techniques as in [Zero Stars](level1.md#zero-stars) challenge.
+
 ## Weird Crypto
 _Inform the shop about an algorithm or library it should definitely not use the way it does._
 
