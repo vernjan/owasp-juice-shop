@@ -65,9 +65,21 @@ Decode it (https://jwt.io/):
 ```
 
 The password hash is `0192023a7bbd73250516f069df18b500`.
-Based on the hash length (128 bits), this is most likely `md5`.
+Based on the hash length (128 bits), this is most likely `MD5`.
 Assuming the password is weak, it can be easily reverted.
-Go to https://hashtoolkit.com/decrypt-md5-hash/0192023a7bbd73250516f069df18b500
+Go to https://hashtoolkit.com/decrypt-md5-hash/0192023a7bbd73250516f069df18b500.
 The password is `admin123`.
 
 Log out and log in again with `admin@juice-sh.op` / `admin123`
+
+## Weird Crypto
+_Inform the shop about an algorithm or library it should definitely not use the way it does._
+
+The troublesome algorithm is [MD5](https://en.wikipedia.org/wiki/MD5). Never ever use it for hashing
+passwords. It can be easily reverted (see [Password Strength](#password-strength) challenge).
+
+Navigate to _Customer Feedback_ in the top left menu.
+
+![](images/customer-feedback-md5.png)
+
+Type `md5` in the _Comment_ field and submit.

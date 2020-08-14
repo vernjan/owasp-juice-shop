@@ -109,7 +109,7 @@ Navigate to `/#/score-board`
 ## Zero Stars
 _Give a devastating zero-star feedback to the store._
 
-Log in and navigate to _Customer Feedback_ in the top left menu.
+Navigate to _Customer Feedback_ in the top left menu.
 
 ![](images/customer-feedback.png)
 
