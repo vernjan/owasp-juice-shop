@@ -14,6 +14,13 @@ Then, go to `/main-es2015.js` and search for `admin`. One of the results is:
 
 Navigate to `/#/administration`
 
+## Five-Star Feedback
+_Get rid of all 5-star customer feedback._
+
+Start with [Admin Section](#admin-section) and then simply delete the 5-star feedback.
+
+![](images/feedback-list.png)
+
 ## Login Admin
 _Log in with the administrator's user account._
 
