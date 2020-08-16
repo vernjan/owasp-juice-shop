@@ -19,3 +19,18 @@ Modify the body of the user registration request (`POST /api/Users/`) by adding 
   "securityAnswer": "Whatever"
 }
 ```
+
+## Login Bender
+_Log in with Bender's user account._
+
+Same as [Login Jim](#login-jim) challenge
+
+## Login Jim
+_Log in with Jim's user account._
+
+We need two things: email and password
+
+Email is easy. Once you have the admin access, you can see it in _Administration_. It's `jim@juice-sh.op`.
+
+To bypass the password check, we can use a simple SQL injection:
+`jim@juice-sh.op';` or `jim@juice-sh.op'--`
