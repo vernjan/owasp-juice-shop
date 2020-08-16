@@ -88,6 +88,16 @@ The password is `admin123`.
 
 Log out and log in again with `admin@juice-sh.op` / `admin123`
 
+## Reflected XSS
+_Perform a reflected XSS attack with <iframe src="javascript:alert(`xss`)">._
+
+You need to find a place where (usually) a query param is reflected back on the user screen.
+
+For example
+```
+/#/track-result/new?id=<iframe%20src%3D"javascript:alert(%60xss%60)">
+```
+
 ## View Basket
 _View another user's shopping basket._
 
