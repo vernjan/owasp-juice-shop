@@ -37,6 +37,15 @@ Password: aaaaaaaaa
 
 Luckily, admin is the first user in the database.
 
+## Login MC SafeSearch
+_Log in with MC SafeSearch's original user credentials without applying SQL Injection or any other bypass._
+
+I used the same approach as in [Password Strength](#password-strength) challenge.
+
+You can find the user's email in Administration, it's `mc.safesearch@juice-sh.op`.
+
+MD5 password hash is `b03f4b0ba8b458fa0acdc02cdb953bc8` and can be easily reverted into `Mr. N00dles`.
+
 ## Password Strength
 _Log in with the administrator's user credentials without previously changing them or applying SQL Injection._
 
