@@ -62,10 +62,27 @@ The general idea is to craft a form similar to this:
 <script>document.forms[0].submit();</script>
 ```
 
+## Deluxe Fraud
+_Obtain a Deluxe Membership without paying for it._
+
+Log in as a standard customer (not admin) and pay for the Deluxe membership (in top left menu).
+
+This is the important request:
+```
+POST https://vernjan-juice-shop.herokuapp.com/rest/deluxe-membership
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9. ..
+Content-Type: application/json
+
+{"paymentMode":"card"}
+```
+
+The trick is to use a payment method you don't really have. For example, create a new user (do not add any payment cards)
+and replay this exact request (just update the `Authorization` header).
+
 ## Login Bender
 _Log in with Bender's user account._
 
-Same as [Login Jim](#login-jim) challenge
+The same as [Login Jim](#login-jim) challenge.
 
 ## Login Jim
 _Log in with Jim's user account._
