@@ -1,6 +1,6 @@
 # Level 2
 
-## Admin Section
+## Admin Section (Broken Access Control)
 _Access the administration section of the store._
 
 At first, you need to log in with `admin` role. See one of:
@@ -14,14 +14,19 @@ Then, go to `/main-es2015.js` and search for `admin`. One of the results is:
 
 Navigate to `/#/administration`
 
-## Five-Star Feedback
+## Deprecated Interface (Security Misconfiguration)
+_Use a deprecated B2B interface that was not properly shut down._
+
+TODO
+
+## Five-Star Feedback (Broken Access Control)
 _Get rid of all 5-star customer feedback._
 
 Start with [Admin Section](#admin-section) and then simply delete the 5-star feedback.
 
 ![](images/feedback-list.png)
 
-## Login Admin
+## Login Admin (Injection)
 _Log in with the administrator's user account._
 
 According to the challenge category, we need to use (SQL) injection.
@@ -37,7 +42,7 @@ Password: aaaaaaaaa
 
 Luckily, admin is the first user in the database.
 
-## Login MC SafeSearch
+## Login MC SafeSearch (Sensitive Data Exposure)
 _Log in with MC SafeSearch's original user credentials without applying SQL Injection or any other bypass._
 
 I used the same approach as in [Password Strength](#password-strength) challenge.
@@ -46,7 +51,7 @@ You can find the user's email in Administration, it's `mc.safesearch@juice-sh.op
 
 MD5 password hash is `b03f4b0ba8b458fa0acdc02cdb953bc8` and can be easily reverted into `Mr. N00dles`.
 
-## Password Strength
+## Password Strength (Broken Authentication)
 _Log in with the administrator's user credentials without previously changing them or applying SQL Injection._
 
 At first, log in as admin (see [Login Admin](#login-admin) challenge).
@@ -88,7 +93,7 @@ The password is `admin123`.
 
 Log out and log in again with `admin@juice-sh.op` / `admin123`
 
-## Reflected XSS
+## Reflected XSS (XSS)
 _Perform a reflected XSS attack with <iframe src="javascript:alert(`xss`)">._
 
 You need to find a place where (usually) a query param is reflected back on the user screen.
@@ -98,7 +103,12 @@ For example
 /#/track-result/new?id=<iframe%20src%3D"javascript:alert(%60xss%60)">
 ```
 
-## View Basket
+## Security Policy (Miscellaneous)
+_Behave like any "white-hat" should before getting into the action._
+
+TODO
+
+## View Basket (Broken Access Control)
 _View another user's shopping basket._
 
 Log in and click on _Your Basket_. Observe that HTTP request `GET /rest/basket/1` is sent.
@@ -106,7 +116,7 @@ Modify the request URL to `/rest/basket/2`.
 
 You can use the same techniques as in [Zero Stars](level1.md#zero-stars) challenge.
 
-## Weird Crypto
+## Weird Crypto (Cryptographic Issues)
 _Inform the shop about an algorithm or library it should definitely not use the way it does._
 
 The troublesome algorithm is [MD5](https://en.wikipedia.org/wiki/MD5). Never ever use it for hashing

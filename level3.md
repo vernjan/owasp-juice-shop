@@ -1,6 +1,6 @@
 # Level 3
 
-## Admin Registration
+## Admin Registration (Improper Input Validation)
 _Register as a user with administrator privileges._
 
 Modify the body of the user registration request (`POST /api/Users/`) by adding `"role":"admin",`:
@@ -20,7 +20,7 @@ Modify the body of the user registration request (`POST /api/Users/`) by adding 
 }
 ```
 
-## Bjoern's Favorite Pet
+## Bjoern's Favorite Pet (Broken Authentication)
 _Reset the password of Bjoern's OWASP account via the Forgot Password mechanism with the original answer to his security question._
 
 Google for `bjoern kimminich cat name`.
@@ -28,7 +28,7 @@ One of the sources is this YouTube video https://www.youtube.com/watch?v=Lu0-kDd
 
 The pet's name is `Zaya`
 
-## CAPTCHA Bypass
+## CAPTCHA Bypass (Broken Anti Automation)
 _Submit 10 or more customer feedbacks within 10 seconds._
 
 CAPTCHA is broken. The computation result is bound to `captchaId`.
@@ -47,7 +47,7 @@ do
 done
 ```
 
-## CSRF
+## CSRF (Broken Access Control)
 _Change the name of a user by performing Cross-Site Request Forgery from [another origin](http://htmledit.squarefree.com/)._
 
 This **no longer works in modern web browsers**.
@@ -61,7 +61,7 @@ The idea is to craft a form similar to this:
 <script>document.forms[0].submit();</script>
 ```
 
-## Deluxe Fraud
+## Deluxe Fraud (Improper Input Validation)
 _Obtain a Deluxe Membership without paying for it._
 
 Log in as a standard customer (not admin) and pay for the Deluxe membership (in top left menu).
@@ -78,12 +78,12 @@ Content-Type: application/json
 The trick is to use a payment method you _don't really have_. For example, create a new user
 (do not add any payment cards) and replay this exact request (just update the `Authorization` header).
 
-## Login Bender
+## Login Bender (Injection)
 _Log in with Bender's user account._
 
 The same as [Login Jim](#login-jim) challenge.
 
-## Login Jim
+## Login Jim ()
 _Log in with Jim's user account._
 
 We need two things: email and password
