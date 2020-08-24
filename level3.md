@@ -318,6 +318,20 @@ Email is easy. Once you have the admin access, you can see it in _Administration
 To bypass the password check, we can use a simple SQL injection:
 `jim@juice-sh.op';` or `jim@juice-sh.op'--`
 
+## Payback Time (Improper Input Validation)
+_Place an order that makes you rich._
+
+Add some products to your basket and then change the quantity. The following request is sent:
+```
+PUT /api/BasketItems/9
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.
+Content-Type: application/json
+
+{"quantity":5}
+```
+
+Change the quantity to a negative number and finish the order.
+
 ## Upload Size (Improper Input Validation)
 _Upload a file larger than 100 kB._
 
