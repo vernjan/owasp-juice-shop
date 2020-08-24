@@ -32,7 +32,7 @@ The pet's name is `Zaya`
 _Submit 10 or more customer feedbacks within 10 seconds._
 
 CAPTCHA is broken. The computation result is bound to `captchaId`.
-We can simply bypass it by sending the same id and the same result over and over again. 
+We can simply bypass it by sending the same id, and the same result over and over again. 
 
 Bash script to send the request 10 times:
 ```
@@ -306,7 +306,7 @@ Content-Type: application/json
 ## Login Bender (Injection)
 _Log in with Bender's user account._
 
-The same as [Login Jim](#login-jim) challenge.
+The same as [Login Jim](#login-jim-injection) challenge.
 
 ## Login Jim (Injection)
 _Log in with Jim's user account._

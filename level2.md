@@ -4,8 +4,8 @@
 _Access the administration section of the store._
 
 At first, you need to log in with `admin` role. See one of:
-- [Level 2 / Login Admin](#login-admin)
-- [Level 3 / Admin Registration](level3.md#admin-registration)
+- [Level 2 / Login Admin](#login-admin-injection)
+- [Level 3 / Admin Registration](level3.md#admin-registration-improper-input-validation)
 
 Then, go to `/main-es2015.js` and search for `admin`. One of the results is:
 ```
@@ -22,7 +22,7 @@ TODO
 ## Five-Star Feedback (Broken Access Control)
 _Get rid of all 5-star customer feedback._
 
-Start with [Admin Section](#admin-section) and then simply delete the 5-star feedback.
+Start with [Admin Section](#admin-section-broken-access-control) and then simply delete the 5-star feedback.
 
 ![](images/feedback-list.png)
 
@@ -45,7 +45,7 @@ Luckily, admin is the first user in the database.
 ## Login MC SafeSearch (Sensitive Data Exposure)
 _Log in with MC SafeSearch's original user credentials without applying SQL Injection or any other bypass._
 
-I used the same approach as in [Password Strength](#password-strength) challenge.
+I used the same approach as in [Password Strength](#password-strength-broken-authentication) challenge.
 
 You can find the user's email in Administration, it's `mc.safesearch@juice-sh.op`.
 
@@ -54,7 +54,7 @@ MD5 password hash is `b03f4b0ba8b458fa0acdc02cdb953bc8` and can be easily revert
 ## Password Strength (Broken Authentication)
 _Log in with the administrator's user credentials without previously changing them or applying SQL Injection._
 
-At first, log in as admin (see [Login Admin](#login-admin) challenge).
+At first, log in as admin (see [Login Admin](#login-admin-injection) challenge).
 
 Grab the JWT token from cookies:
 ```
@@ -114,13 +114,13 @@ _View another user's shopping basket._
 Log in and click on _Your Basket_. Observe that HTTP request `GET /rest/basket/1` is sent.
 Modify the request URL to `/rest/basket/2`.
 
-You can use the same techniques as in [Zero Stars](level1.md#zero-stars) challenge.
+You can use the same techniques as in [Zero Stars](level1.md#zero-stars-improper-input-validation) challenge.
 
 ## Weird Crypto (Cryptographic Issues)
 _Inform the shop about an algorithm or library it should definitely not use the way it does._
 
 The troublesome algorithm is [MD5](https://en.wikipedia.org/wiki/MD5). Never ever use it for hashing
-passwords. It can be easily reverted (see [Password Strength](#password-strength) challenge).
+passwords. It can be easily reverted (see [Password Strength](#password-strength-broken-authentication) challenge).
 
 Navigate to _Customer Feedback_ in the top left menu.
 
