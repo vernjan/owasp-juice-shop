@@ -72,8 +72,8 @@ Navigate to `/assets/public/images/uploads/%F0%9F%98%BC-%23zatschi-%23whoneedsfo
 ## Outdated Whitelist (Unvalidated Redirects)
 _Let us redirect you to one of our crypto currency addresses which are not promoted any longer._
 
-Search for `redirect` in `/main-es2015.js`. One of the result is:
-```json
+Search for `redirect` in `/main-es2015.js`. One of the results is:
+```
 data: {
     data: "bitcoin:1AbKfgvw9psQ41NbLi8kufDQTezwG8DRZm",
     url: "./redirect?to=https://blockchain.info/address/1AbKfgvw9psQ41NbLi8kufDQTezwG8DRZm",
