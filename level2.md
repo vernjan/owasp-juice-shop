@@ -106,7 +106,10 @@ For example
 ## Security Policy (Miscellaneous)
 _Behave like any "white-hat" should before getting into the action._
 
-TODO
+Similar to `robots.txt` file, there's also a "well-known" `security.txt` file.
+It's located at `.well-known/security.txt`.
+
+For more details see https://securitytxt.org/.
 
 ## View Basket (Broken Access Control)
 _View another user's shopping basket._
