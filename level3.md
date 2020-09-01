@@ -303,6 +303,57 @@ Content-Type: application/json
 {"message":"Not Jim's review","author":"jim@juice-sh.op"}
 ```
 
+## Login Amy (Sensitive Data Exposure)
+_Log in with Amy's original user credentials. (This could take 93.83 billion trillion trillion centuries to brute force, but luckily she did not read the "One Important Final Note")_
+
+Googling for `"One Important Final Note"` points to https://www.grc.com/haystack.htm?1. An interesting technique for making
+memorable passwords. 
+
+Read the "One Important Final Note" to understand the core of this challenge. We can assume that Amy's password is short
+and padded with `....` to 24 characters (based on the _93.83 billion trillion trillion centuries_ cracking time).
+
+First step is to get Amy's password hash. The same process as in
+[Password Strength](level2.md#password-strength-broken-authentication) challenge.
+
+The hash is: `030f05e45e30710c3ad3c32f00de0473`
+
+I used [hashcat](https://hashcat.net/hashcat/) for cracking the password:
+```
+echo 030f05e45e30710c3ad3c32f00de0473 > hashes.txt
+$ hashcat -a 3 -d 3 -m 0 hashes.txt -1 '?l?u?d' '?1?1?1.....................'
+..
+Session..........: hashcat
+Status...........: Cracked
+Hash.Name........: MD5
+Hash.Target......: 030f05e45e30710c3ad3c32f00de0473
+Time.Started.....: Tue Sep  1 16:57:58 2020 (1 min, 11 secs)
+Time.Estimated...: Tue Sep  1 16:59:09 2020 (0 secs)
+Guess.Mask.......: ?1?1?1..................... [24]
+Guess.Charset....: -1 ?l?u?d, -2 Undefined, -3 Undefined, -4 Undefined
+Guess.Queue......: 1/1 (100.00%)
+Speed.#3.........:     1541 H/s (0.20ms) @ Accel:256 Loops:32 Thr:64 Vec:1
+Recovered........: 1/1 (100.00%) Digests
+Progress.........: 108672/238328 (45.60%)
+Rejected.........: 0/108672 (0.00%)
+Restore.Point....: 0/1 (0.00%)
+Restore.Sub.#3...: Salt:0 Amplifier:108640-108672 Iteration:0-32
+Candidates.#3....: g0h..................... -> K1f.....................
+```
+
+- `-a 3` is for brute-force attack
+- `-d 3` is for running on my dedicated graphics card
+- `-m 0` is for MD5
+- `-1 '?l?u?d'` is a custom charset with lower and uppers case letters and digits (see https://hashcat.net/wiki/doku.php?id=mask_attack for details)
+- `'?1?1?1.....................'` is a password mask
+
+Once _hashcat_ is done, read the password:
+```
+$ hashcat hashes.txt --show
+030f05e45e30710c3ad3c32f00de0473:K1f.....................
+```
+
+Amy's password is `K1f`
+
 ## Login Bender (Injection)
 _Log in with Bender's user account._
 
