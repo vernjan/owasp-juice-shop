@@ -17,7 +17,23 @@ Navigate to `/#/administration`
 ## Deprecated Interface (Security Misconfiguration)
 _Use a deprecated B2B interface that was not properly shut down._
 
-TODO
+Searching for `B2B` in `/main-es2015.js` points to this text:
+```
+Input area for uploading a single invoice PDF or XML B2B order file or a ZIP archive containing multiple invoices or orders
+```
+
+The surrounding code tells us this is the _Complaint_ form.
+
+Upload any XML document, for example:
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<hello>world</hello>
+```
+
+The response is:
+```
+410 Error: B2B customer complaints via file upload have been deprecated for security reasons: <?xml version="1.0" encoding="UTF-8"?><hello>world</hello> (hello.xml)
+```
 
 ## Five-Star Feedback (Broken Access Control)
 _Get rid of all 5-star customer feedback._
