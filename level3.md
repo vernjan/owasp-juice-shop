@@ -434,6 +434,16 @@ Content-type: application/json
 {"description":"O-Saft is an easy to use tool to show information about SSL certificate and tests the SSL connection according given list of ciphers and various SSL configurations. <a href=\"https://owasp.slack.com\" target=\"_blank\">More...</a>"}
 ```
 
+## Reset Jim's Password (Broken Authentication)
+_Reset Jim's password via the Forgot Password mechanism with the original answer to his security question._
+
+Given the answer is a common name, it can be easily guessed. I downloaded a list of 200 most common names.
+See [names.txt](misc/names.txt).
+
+To automate the guessing process, I used [OWASP Zap Fuzzer](https://www.zaproxy.org/docs/desktop/addons/fuzzer/).
+
+The sibling's name is `Samuel`. 
+
 ## Upload Size (Improper Input Validation)
 _Upload a file larger than 100 kB._
 
