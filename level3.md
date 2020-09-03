@@ -419,6 +419,33 @@ Content-Type: application/json
 
 Change the quantity to a negative number and finish the order.
 
+## Privacy Policy Inspection (Security through Obscurity)
+_Prove that you actually read our privacy policy._
+
+While reading the privacy policy, you can notice that some words get highlighted on the mouse hover:
+![](images/privacy-policy-hot.png)
+
+Inspect the highlighted word with DevTools and notice that it has CSS class `hot`.
+Search for all `hot` classes to get the following words:
+```
+https://vernjan-juice-shop.herokuapp.com
+We may also
+instruct you
+to refuse all
+reasonably necessary
+responsibility
+```
+
+I had now idea I should turn those words into a link but once I googled for them,
+Google spoilt the solution in the search results previews.
+
+Go to https://vernjan-juice-shop.herokuapp.com/We/may/also/instruct/you/to/refuse/all/reasonably/necessary/responsibility
+
+The response is also weird but maybe it will come to use later?
+```
+404 Error: ENOENT: no such file or directory, stat '/app/frontend/dist/frontend/assets/private/thank-you.jpg'
+```
+
 ## Product Tampering (Broken Access Control)
 _Change the href of the link within the OWASP SSL Advanced Forensic Tool (O-Saft) product description into https://owasp.slack.com._
 
