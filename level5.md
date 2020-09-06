@@ -81,7 +81,7 @@ See [decrypt_announcement.kts](src/decrypt_announcement.kts) for details.
 Doesn't look much English but this is [Lorem Ipsum](https://www.lipsum.com/) and it should be `dolores at ea`.
 - This gave me most of the correct letters.
 - The last step was to decrypt the most important part: `WXL: YZYtokensaleCicoCea`.
-- After reading the first hint: _"This challenge is about finding the prepared-but-not-yet-published page about this ICO in the application._
-it was obvious.". It is `URL: /#/tokensale-ico-ea`.
+- After reading the first hint: _"This challenge is about finding the prepared-but-not-yet-published page about this ICO in the application."_
+it became obvious. It is `URL: /#/tokensale-ico-ea`.
 
 Go to `/#/tokensale-ico-ea`
