@@ -70,16 +70,18 @@ It looks rather complicated but let's start with some basic analysis:
 Perhaps each line represents a single letter!
 Given it's a human readable text, we can break this cipher with the frequency analysis.
 
-Breaking the cipher (see [decrypt_announcement.kts](src/decrypt_announcement.kts)):
+### Breaking the cipher
+See [decrypt_announcement.kts](src/decrypt_announcement.kts) for details.
+
 - Replace each unique line with a unique letter (just to make everything easier to read and work with)
 - Do a frequency analysis of the result (https://www.dcode.fr/frequency-analysis, check `ALL CHARACTERS (INCLUDING PUNCTUATION AND SYMBOLS)`)
   ![](images/frequency-analysis.png)
-- Start breaking the cipher by assigning letters and characters by their frequencies. The most common character is space!
+- Start breaking the cipher by assigning the correct letters and characters by their frequencies. The most common character is space!
 - After replacing a few letters, I noticed the following pattern `MoBohen et ea`.
 Doesn't look much English but this is [Lorem Ipsum](https://www.lipsum.com/) and it should be `dolores at ea`.
-- This give me most of the correct letters.
+- This gave me most of the correct letters.
 - The last step was to decrypt the most important part: `WXL: YZYtokensaleCicoCea`.
-After reading the first hint: _This challenge is about finding the prepared-but-not-yet-published page about this ICO in the application._
-it was obvious. It is `URL: /#/tokensale-ico-ea`.
+- After reading the first hint: _"This challenge is about finding the prepared-but-not-yet-published page about this ICO in the application._
+it was obvious.". It is `URL: /#/tokensale-ico-ea`.
 
 Go to `/#/tokensale-ico-ea`
