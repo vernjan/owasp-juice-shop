@@ -4,7 +4,7 @@
 _Order the Christmas special offer of 2014._
 
 You can find "Christmas special offer of 2014" in [application-configuration.json](misc/application-configuration.json).
-By comparing with the list of products (`GET /api/Product`), we can determine that "Christmas special offer of 2014"
+By comparing with the list of products (`GET /api/Product`), you can determine that "Christmas special offer of 2014"
 must have product ID `10`.
 
 Knowing the ID, just add it to the cart:
@@ -15,6 +15,30 @@ POST /api/BasketItems/
 ```
 
 Finally, finish the order in your browser. 
+
+## Leaked Unsafe Product (Sensitive Data Exposure)
+_Identify an unsafe product that was removed from the shop and inform the shop which ingredients are dangerous._
+
+Similar to the challenge [Christmas Special](#christmas-special-injection), we can easily identify the product in 
+[application-configuration.json](misc/application-configuration.json):
+```json
+{
+    "name": "Rippertuer Special Juice",
+    "description": "Contains a magical collection of the rarest fruits gathered from all around the world, like Cherymoya Annona cherimola, Jabuticaba Myrciaria cauliflora, Bael Aegle marmelos... and others, at an unbelievable price! <br/><span style=\"color:red;\">This item has been made unavailable because of lack of safety standards.</span>",
+    "price": 16.99,
+    "image": "undefined.jpg",
+    "keywordsForPastebinDataLeakChallenge": [
+      "hueteroneel",
+      "eurogium edule"
+    ]
+}
+```
+
+Googling for the rarest fruits is not the solution, they are all safe.
+So either google for `Rippertuer Special Juice` and find this paste https://pastebin.com/90dUgd7s
+or get the answer from `keywordsForPastebinDataLeakChallenge` (guess this is not intentional though).
+
+Submit `Hueteroneel and Eurogium Edule` into _Customer Feedback_ form.
 
 ## Reset Bender's Password (Broken Authentication)
 _Reset Bender's password via the Forgot Password mechanism with the original answer to his security question._
