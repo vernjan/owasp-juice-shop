@@ -1,5 +1,21 @@
 # Level 4
 
+## Christmas Special (Injection)
+_Order the Christmas special offer of 2014._
+
+You can find "Christmas special offer of 2014" in [application-configuration.json](misc/application-configuration.json).
+By comparing with the list of products (`GET /api/Product`), we can determine that "Christmas special offer of 2014"
+must have product ID `10`.
+
+Knowing the ID, just add it to the cart:
+```
+POST /api/BasketItems/
+
+{"ProductId":10,"BasketId":"1","quantity":1}
+```
+
+Finally, finish the order in your browser. 
+
 ## Reset Bender's Password (Broken Authentication)
 _Reset Bender's password via the Forgot Password mechanism with the original answer to his security question._
 
