@@ -1,5 +1,5 @@
 # OWASP Juice Shop
-My solutions for [OWASP Juice shop](https://github.com/bkimminich/juice-shop) (v11.1.3)
+My solutions for [OWASP Juice shop](https://github.com/bkimminich/juice-shop) (v12.0.2)
 
 - [Level 1](level1.md)
 - [Level 2](level2.md)

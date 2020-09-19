@@ -5,7 +5,7 @@ _Use the bonus payload_
 ```<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/771984076&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>```
 _in the DOM XSS challenge._
 
-The same as _DOM XSS_ but this time it plays [OWASP Juice Shop Jingle](https://soundcloud.com/braimee/owasp-juice-shop-jingle).
+The same as [DOM XSS](#dom-xss-xss) challenge but this time it plays [OWASP Juice Shop Jingle](https://soundcloud.com/braimee/owasp-juice-shop-jingle).
 
 ## Confidential Document (Sensitive Data Exposure)
 _Access a confidential document._
@@ -21,7 +21,7 @@ Navigate to `/ftp` and read `acquisitions.md`.
 Alternatively, run a _dir busting_ tool such as [DirBuster](https://tools.kali.org/web-applications/dirbuster).
 
 ## DOM XSS (XSS)
-_Perform a DOM XSS attack with_ `<iframe src="javascript:alert(`xss`)">`.
+_Perform a DOM XSS attack with <iframe src="javascript:alert(`xss`)">_.
 
 A typical source of XSS vulnerabilities is the _search_ field. The reason is that it usually reflects the user input.
 Simply paste the XSS payload into the search field.
