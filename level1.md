@@ -7,6 +7,20 @@ _in the DOM XSS challenge._
 
 The same as [DOM XSS](#dom-xss-xss) challenge but this time it plays [OWASP Juice Shop Jingle](https://soundcloud.com/braimee/owasp-juice-shop-jingle).
 
+## Bully Chatbot (Miscellaneous)
+_Receive a coupon code from the support chatbot._
+
+Chatbot is at `/#/chatbot` (you must log in first as any user).
+
+Ask the chatbot for a `coupon`. Chatbot is rather reluctant to give the coupon for free but if you are persistent
+enough, he will give you one.
+
+I used [OWASP Zap Fuzzer](https://www.zaproxy.org/docs/desktop/addons/fuzzer/) to repeatedly send the message (1-100)
+and I received a couple of coupons, for example:
+```
+Oooookay, if you promise to stop nagging me here's a 10% coupon code for you: q:<IrfFb1k
+```
+
 ## Confidential Document (Sensitive Data Exposure)
 _Access a confidential document._
 

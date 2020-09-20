@@ -22,9 +22,9 @@ Searching for `B2B` in `/main-es2015.js` points to this text:
 Input area for uploading a single invoice PDF or XML B2B order file or a ZIP archive containing multiple invoices or orders
 ```
 
-The surrounding code tells us this is the _Complaint_ form.
+The surrounding code tells us this is the _Complaint_ (`/#/complain`) form.
 
-Upload any XML document, for example:
+Log in and upload any XML document into the Complaint form, for example:
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <hello>world</hello>
