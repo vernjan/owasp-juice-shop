@@ -67,6 +67,22 @@ You can find the user's email in Administration, it's `mc.safesearch@juice-sh.op
 
 MD5 password hash is `b03f4b0ba8b458fa0acdc02cdb953bc8` and can be easily reverted into `Mr. N00dles`.
 
+## Meta Geo Stalking (Sensitive Data Exposure)
+_Determine the answer to John's security question by looking at an upload of him to the Photo Wall and use it to reset his password via the Forgot Password mechanism._
+
+Name of the challenge hints us to search in metadata. I used http://metapicz.com/.
+
+If you upload the image, you will get the GPS coordinates:
+```
+GPSLatitudeRef   North
+GPSLatitude      36.958717
+GPSLongitudeRef  West
+GPSLongitude     84.348217
+```
+
+Next, I used https://www.gps-coordinates.net/ to find the place. After a few failed attempts trying variations of
+`Scuttlehole trail`, I zoomed out and got the correct answer: `Daniel Boone National Forest`.  
+
 ## Password Strength (Broken Authentication)
 _Log in with the administrator's user credentials without previously changing them or applying SQL Injection._
 
@@ -134,6 +150,15 @@ Log in and click on _Your Basket_. Observe that HTTP request `GET /rest/basket/1
 Modify the request URL to `/rest/basket/2`.
 
 You can use the same techniques as in [Zero Stars](level1.md#zero-stars-improper-input-validation) challenge.
+
+## Visual Geo Stalking (Sensitive Data Exposure)
+_Determine the answer to Emma's security question by looking at an upload of her to the Photo Wall and use it to reset her password via the Forgot Password mechanism._
+
+It's all about looking carefully at the picture:
+
+![](images/visual-geo-stalking.png) 
+
+Name of the company is `ITsec`.
 
 ## Weird Crypto (Cryptographic Issues)
 _Inform the shop about an algorithm or library it should definitely not use the way it does._
