@@ -80,6 +80,18 @@ If you want to just solve the challenge without installing an old version of a b
 you can intercept the request for a username change (`POST /profile`)
 and add header `Origin: http://htmledit.squarefree.com`.
 
+## Client-side XSS Protection (XSS)
+_Perform a persisted XSS attack with <iframe src="javascript:alert(`xss`)"> bypassing a client-side security mechanism._
+
+The hardest part is to find which field is vulnerable to XSS. For this challenge, you can exclude all fields which
+- are not client-side validated,
+- and their value is not persisted and shown on some other page.
+
+The vulnerable field is `email` in User registration.
+
+To solve the challenge, tamper with the request and change the email
+into ```Hello <iframe src="javascript:alert(`xss`)">```.
+
 ## Database Schema (Injection)
 _Exfiltrate the entire DB schema definition via SQL Injection._
 
