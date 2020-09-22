@@ -322,7 +322,7 @@ Content-Type: application/json
 ```
 
 ## Forged Review (Broken Access Control) 
-_ Post a product review as another user or edit any user's existing review._
+_Post a product review as another user or edit any user's existing review._
 
 Log in and post a review. Then modify `author` in the request body and resend it.
 
@@ -383,7 +383,7 @@ $ hashcat hashes.txt --show
 030f05e45e30710c3ad3c32f00de0473:K1f.....................
 ```
 
-Amy's password is `K1f`
+Amy's password is `K1f.....................`
 
 ## Login Bender (Injection)
 _Log in with Bender's user account._
