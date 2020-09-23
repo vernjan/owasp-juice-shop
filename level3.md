@@ -306,8 +306,10 @@ Content-Type: application/json
 {"paymentMode":"card"}
 ```
 
-The trick is to use a payment method you _don't really have_. For example, create a new user
-(do not add any payment cards) and replay this exact request (just update the `Authorization` header).
+Create a new user and replay this request with the following body (also update the `Authorization` header):
+```
+{"paymentMode":""}
+```
 
 ## Forged Feedback (Broken Access Control) 
 _Post some feedback in another users name._
@@ -333,6 +335,11 @@ Content-Type: application/json
 
 {"message":"Not Jim's review","author":"jim@juice-sh.op"}
 ```
+
+## GDPR Data Erasure (Broken Authentication)
+_Log in with Chris' erased user account._
+
+TODO
 
 ## Login Amy (Sensitive Data Exposure)
 _Log in with Amy's original user credentials. (This could take 93.83 billion trillion trillion centuries to brute force, but luckily she did not read the "One Important Final Note")_
