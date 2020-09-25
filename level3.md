@@ -339,7 +339,11 @@ Content-Type: application/json
 ## GDPR Data Erasure (Broken Authentication)
 _Log in with Chris' erased user account._
 
-TODO
+Start with solving the [User Credentials](level4.md#user-credentials-injection) challenge.
+
+Now we know that Chris' email is `chris.pike@juice-sh.op`.
+
+Log in as Chris the same way as in the [Login Jim](#login-jim-injection) challenge.
 
 ## Login Amy (Sensitive Data Exposure)
 _Log in with Amy's original user credentials. (This could take 93.83 billion trillion trillion centuries to brute force, but luckily she did not read the "One Important Final Note")_
