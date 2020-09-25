@@ -1,0 +1,214 @@
+{
+  "status": "success",
+  "data": [
+    {
+      "id": "",
+      "name": "J12934@juice-sh.op",
+      "description": "3c2abc04e4a6ea8f1327d0aae3714b7d",
+      "price": "admin",
+      "deluxePrice": "",
+      "image": "0.0.0.0",
+      "createdAt": "assets/public/images/uploads/default.svg",
+      "updatedAt": "",
+      "deletedAt": 1
+    },
+    {
+      "id": "",
+      "name": "accountant@juice-sh.op",
+      "description": "963e10f92a70b4b463220cb4c5d636dc",
+      "price": "accounting",
+      "deluxePrice": "",
+      "image": "0.0.0.0",
+      "createdAt": "assets/public/images/uploads/default.svg",
+      "updatedAt": "",
+      "deletedAt": 1
+    },
+    {
+      "id": "",
+      "name": "admin@juice-sh.op",
+      "description": "0192023a7bbd73250516f069df18b500",
+      "price": "admin",
+      "deluxePrice": "",
+      "image": "0.0.0.0",
+      "createdAt": "assets/public/images/uploads/default.svg",
+      "updatedAt": "",
+      "deletedAt": 1
+    },
+    {
+      "id": "",
+      "name": "amy@juice-sh.op",
+      "description": "030f05e45e30710c3ad3c32f00de0473",
+      "price": "customer",
+      "deluxePrice": "",
+      "image": "0.0.0.0",
+      "createdAt": "assets/public/images/uploads/default.svg",
+      "updatedAt": "",
+      "deletedAt": 1
+    },
+    {
+      "id": "",
+      "name": "bender@juice-sh.op",
+      "description": "0c36e517e3fa95aabf1bbffc6744a4ef",
+      "price": "customer",
+      "deluxePrice": "",
+      "image": "0.0.0.0",
+      "createdAt": "assets/public/images/uploads/default.svg",
+      "updatedAt": "",
+      "deletedAt": 1
+    },
+    {
+      "id": "",
+      "name": "bjoern@juice-sh.op",
+      "description": "7f311911af16fa8f418dd1a3051d6810",
+      "price": "admin",
+      "deluxePrice": "",
+      "image": "0.0.0.0",
+      "createdAt": "assets/public/images/uploads/default.svg",
+      "updatedAt": "",
+      "deletedAt": 1
+    },
+    {
+      "id": "",
+      "name": "bjoern@owasp.org",
+      "description": "9283f1b2e9669749081963be0462e466",
+      "price": "deluxe",
+      "deluxePrice": "efe2f1599e2d93440d5243a1ffaf5a413b70cf3ac97156bd6fab9b5ddfcbe0e4",
+      "image": "0.0.0.0",
+      "createdAt": "assets/public/images/uploads/12.jpg",
+      "updatedAt": "",
+      "deletedAt": 1
+    },
+    {
+      "id": "",
+      "name": "chris.pike@juice-sh.op",
+      "description": "10a783b9ed19ea1c67c3a27699f0095b",
+      "price": "customer",
+      "deluxePrice": "",
+      "image": "0.0.0.0",
+      "createdAt": "assets/public/images/uploads/default.svg",
+      "updatedAt": "",
+      "deletedAt": 1
+    },
+    {
+      "id": "",
+      "name": "ciso@juice-sh.op",
+      "description": "861917d5fa5f1172f931dc700d81a8fb",
+      "price": "deluxe",
+      "deluxePrice": "d715c2c75d4a42d3825a050e0a0163c1959b51165373f17bd8eed7b1e05bf20d",
+      "image": "0.0.0.0",
+      "createdAt": "assets/public/images/uploads/default.svg",
+      "updatedAt": "",
+      "deletedAt": 1
+    },
+    {
+      "id": "",
+      "name": "demo",
+      "description": "fe01ce2a7fbac8fafaed7c982a04e229",
+      "price": "customer",
+      "deluxePrice": "",
+      "image": "0.0.0.0",
+      "createdAt": "assets/public/images/uploads/default.svg",
+      "updatedAt": "",
+      "deletedAt": 1
+    },
+    {
+      "id": "",
+      "name": "jim@juice-sh.op",
+      "description": "e541ca7ecf72b8d1286474fc613e5e45",
+      "price": "customer",
+      "deluxePrice": "",
+      "image": "0.0.0.0",
+      "createdAt": "assets/public/images/uploads/default.svg",
+      "updatedAt": "",
+      "deletedAt": 1
+    },
+    {
+      "id": "",
+      "name": "mc.safesearch@juice-sh.op",
+      "description": "b03f4b0ba8b458fa0acdc02cdb953bc8",
+      "price": "customer",
+      "deluxePrice": "",
+      "image": "0.0.0.0",
+      "createdAt": "assets/public/images/uploads/default.svg",
+      "updatedAt": "",
+      "deletedAt": 1
+    },
+    {
+      "id": "",
+      "name": "morty@juice-sh.op",
+      "description": "f2f933d0bb0ba057bc8e33b8ebd6d9e8",
+      "price": "customer",
+      "deluxePrice": "",
+      "image": "0.0.0.0",
+      "createdAt": "assets/public/images/uploads/default.svg",
+      "updatedAt": "",
+      "deletedAt": 1
+    },
+    {
+      "id": "",
+      "name": "support@juice-sh.op",
+      "description": "d57386e76107100a7d6c2782978b2e7b",
+      "price": "admin",
+      "deluxePrice": "",
+      "image": "0.0.0.0",
+      "createdAt": "assets/public/images/uploads/default.svg",
+      "updatedAt": "",
+      "deletedAt": 1
+    },
+    {
+      "id": "",
+      "name": "uvogin@juice-sh.op",
+      "description": "05f92148b4b60f7dacd04cceebb8f1af",
+      "price": "customer",
+      "deluxePrice": "",
+      "image": "0.0.0.0",
+      "createdAt": "assets/public/images/uploads/default.svg",
+      "updatedAt": "",
+      "deletedAt": 1
+    },
+    {
+      "id": "E=ma²",
+      "name": "emma@juice-sh.op",
+      "description": "402f1c4a75e316afec5a6ea63147f739",
+      "price": "customer",
+      "deluxePrice": "",
+      "image": "0.0.0.0",
+      "createdAt": "assets/public/images/uploads/default.svg",
+      "updatedAt": "",
+      "deletedAt": 1
+    },
+    {
+      "id": "bkimminich",
+      "name": "bjoern.kimminich@gmail.com",
+      "description": "6edd9d726cbdc873c539e41ae8757b8c",
+      "price": "admin",
+      "deluxePrice": "",
+      "image": "0.0.0.0",
+      "createdAt": "assets/public/images/uploads/default.svg",
+      "updatedAt": "",
+      "deletedAt": 1
+    },
+    {
+      "id": "j0hNny",
+      "name": "john@juice-sh.op",
+      "description": "00479e957b6b42c459ee5746478e4d45",
+      "price": "customer",
+      "deluxePrice": "",
+      "image": "0.0.0.0",
+      "createdAt": "assets/public/images/uploads/default.svg",
+      "updatedAt": "",
+      "deletedAt": 1
+    },
+    {
+      "id": "wurstbrot",
+      "name": "wurstbrot@juice-sh.op",
+      "description": "9ad5b0492bbe528583e128d2a8941de4",
+      "price": "admin",
+      "deluxePrice": "",
+      "image": "0.0.0.0",
+      "createdAt": "assets/public/images/uploads/default.svg",
+      "updatedAt": "IFTXE3SPOEYVURT2MRYGI52TKJ4HC3KH",
+      "deletedAt": 1
+    }
+  ]
+}
