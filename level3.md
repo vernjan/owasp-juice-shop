@@ -478,10 +478,10 @@ reasonably necessary
 responsibility
 ```
 
-I had now idea I should turn those words into a link but once I googled for them,
+I had no idea I should turn those words into a link but once I googled for them,
 Google spoilt the solution in the search results previews.
 
-Go to https://vernjan-juice-shop.herokuapp.com/We/may/also/instruct/you/to/refuse/all/reasonably/necessary/responsibility
+Go to `/We/may/also/instruct/you/to/refuse/all/reasonably/necessary/responsibility`
 
 The response is also weird but maybe it will come to use later?
 ```
