@@ -142,6 +142,54 @@ pes[BgC7sn
 l}6D$gC7ss
 ```
 
+## HTTP-Header XSS (XSS)
+_Perform a persisted XSS attack with <iframe src="javascript:alert(`xss`)"> through an HTTP header._
+
+The first step is to find a place where an HTTP header is reflected back to the user.
+
+I was suspicious from the beginning about the _Last Login IP_ page (`/#/privacy-security/last-login-ip`). The IP address
+is usually taken from HTTP header [X-Forwarded-For](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Forwarded-For).
+
+Next step is to understand how this last login IP is set.
+ 
+Grepping through [main-es2015.js](misc/main-es2015.js):
+```
+grep 'rest/' misc/main-es2015.js
+```
+
+One of the results points to:
+```
+saveLastLoginIp() {
+    return this.http.get(this.hostServer + "/rest/saveLoginIp").pipe(Object(s.a)(t => t), Object(l.a)(t => {
+        throw t
+    }))
+}
+```
+
+This method is called during `logout`.
+
+Log in, log out and let's try to manipulate the HTTP headers.
+
+First attempt is obvious:
+```
+X-Forwarded-For: 1.1.1.1
+```
+
+No luck! 
+
+Don't despair, there are more ways how to [spoof an IP address](https://portswigger.net/kb/issues/00400110_spoofable-client-ip-address).
+
+`True-Client-IP` is the correct one. Just add this header to `GET /rest/saveLoginIp` request:
+```
+True-Client-IP: <iframe src="javascript:alert(`xss`)">
+```
+
+If you really want to trigger the XSS (not necessary to solve the challenge):
+1. Log in
+2. Log out (triggers `GET /rest/saveLoginIp`)
+3. Replay `GET /rest/saveLoginIp` with the extra header
+4. Log in and go to _Last Login IP_ page
+
 ## Leaked Unsafe Product (Sensitive Data Exposure)
 _Identify an unsafe product that was removed from the shop and inform the shop which ingredients are dangerous._
 
