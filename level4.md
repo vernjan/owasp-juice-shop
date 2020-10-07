@@ -214,6 +214,29 @@ or get the answer from `keywordsForPastebinDataLeakChallenge` (guess this is not
 
 Submit `Hueteroneel and Eurogium Edule` into _Customer Feedback_ form.
 
+## Legacy Typosquatting (Vulnerable Components)
+_Inform the shop about a typosquatting trick it has been a victim of at least in v6.2.0-SNAPSHOT. (Mention the exact name of the culprit)_
+
+This challenge follows [Forgotten Developer Backup](#forgotten-developer-backup-sensitive-data-exposure).
+
+Inspect [package.json.bak](misc/package.json.bak). It is for `v6.2.0-SNAPSHOT`!
+
+I was hoping to find a malicious NPM package as described in [Malicious packages in npm](https://iamakulov.com/notes/npm-malicious-packages/)
+(one of the challenge hints).
+
+I ran `npm audit`(see [package-audit.json](misc/package-audit.json)) but didn't find anything suspicious.
+
+Next, I tried to get something from the [Git history](https://github.com/bkimminich/juice-shop/compare/v6.1.0...v6.2.0) comparing `v6.2.0` to `v6.1.0`
+and looking for changes in `package.json`.
+
+All wrong. There is no real vulnerability :-(
+
+Not sure what's the intended way of solving this challenge except for going through the dependencies one by one.
+
+The typo-squatted NPM package is [epilogue-js](https://www.npmjs.com/package/epilogue-js).
+
+Submit `epilogue-js` into the Feedback form.
+
 ## Nested Easter Egg (Cryptographic Issues)
 _Apply some advanced cryptanalysis to find the real easter egg._
 
