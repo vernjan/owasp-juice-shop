@@ -319,6 +319,44 @@ Hopefully, it's just a simple string replacement. So let's try:
 
 Bingo, the nested ```<iframe src="javascript:alert(`xss`)">``` string is deleted resulting into the original payload!
 
+## Steganography (Security through Obscurity)
+_Rat out a notorious character hiding in plain sight in the shop. (Mention the exact name of the character)_
+
+I have some experience with steganography, yet I was unable to crack this one. I miss a hint where to look, otherwise
+there is too many places.
+
+The character is hidden in one of the carousel images (`/#/about`).
+
+The only clue is that just one of the carousel images is a PNG, others are JPGs.
+
+This is the one:
+
+![](misc/5.png)
+
+Nothing suspicious on the first sight. You need a tool to extract the hidden data.
+The usual problem is that you don't know which one ...
+
+I standard utilities such as 
+- `strings`
+- `exiftool`
+- `identify -verbose`
+- `binwalk`
+- [Stegsolve](http://www.caesum.com/handbook/stego.htm)
+- [Forensically](https://29a.ch/photo-forensics/)
+
+However, the tool for this job is [OpenStego](https://www.openstego.com/index.html). I admit I used it in the past.
+
+With _OpenStego_, you can extract the character:
+
+![](misc/J7RbRp1D5XDM5LINx0TdgeFX_o.png)
+
+The last part is to find out his name. Googling by the image is no use.
+However, I was able to Google this picture with keywords `famous cartoon characters green monster ribs`:
+
+![](misc/pickle-rick.jpg)
+
+Finally, get his `Pickle Rick` at [Every Episode of 'Rick and Morty,' Ranked](https://www.thrillist.com/entertainment/nation/best-rick-and-morty-episodes-ranked)
+
 ## User Credentials (Injection)
 _Retrieve a list of all user credentials via SQL Injection._
 
