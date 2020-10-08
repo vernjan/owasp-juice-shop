@@ -322,21 +322,20 @@ Bingo, the nested ```<iframe src="javascript:alert(`xss`)">``` string is deleted
 ## Steganography (Security through Obscurity)
 _Rat out a notorious character hiding in plain sight in the shop. (Mention the exact name of the character)_
 
-I have some experience with steganography, yet I was unable to crack this one. I miss a hint where to look, otherwise
-there is too many places.
+I have some experience with steganography, yet I was unable to crack this one without help.
+I was missing a hint where to look, otherwise there are too many places.
 
-The character is hidden in one of the carousel images (`/#/about`).
-
-The only clue is that just one of the carousel images is a PNG, others are JPGs.
+The character is hidden in one of the carousel images (`/#/about`)
+(_the only clue is that just one of the carousel images is a PNG, others are JPGs_).
 
 This is the one:
 
 ![](misc/5.png)
 
 Nothing suspicious on the first sight. You need a tool to extract the hidden data.
-The usual problem is that you don't know which one ...
+The usual problem is that you don't know which tool is the right one ...
 
-I standard utilities such as 
+I tried, with no luck, standard utilities such as:
 - `strings`
 - `exiftool`
 - `identify -verbose`
@@ -346,16 +345,17 @@ I standard utilities such as
 
 However, the tool for this job is [OpenStego](https://www.openstego.com/index.html). I admit I used it in the past.
 
-With _OpenStego_, you can extract the character:
+With _OpenStego_, you can extract the hidden image:
 
 ![](misc/J7RbRp1D5XDM5LINx0TdgeFX_o.png)
 
-The last part is to find out his name. Googling by the image is no use.
+The last part is to find out the character name. Googling by the image is no use.
 However, I was able to Google this picture with keywords `famous cartoon characters green monster ribs`:
 
 ![](misc/pickle-rick.jpg)
 
-Finally, get his `Pickle Rick` at [Every Episode of 'Rick and Morty,' Ranked](https://www.thrillist.com/entertainment/nation/best-rick-and-morty-episodes-ranked)
+Picture comes from [Rick and Morty Season 3 Episode 3 Review](https://www.thecinemaholic.com/rick-and-morty-season-3-episode-3/).
+You can read here that the hidden character name is `Pickle Rick`.
 
 ## User Credentials (Injection)
 _Retrieve a list of all user credentials via SQL Injection._
