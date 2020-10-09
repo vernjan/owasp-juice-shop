@@ -217,7 +217,7 @@ Submit `Hueteroneel and Eurogium Edule` into _Customer Feedback_ form.
 ## Legacy Typosquatting (Vulnerable Components)
 _Inform the shop about a typosquatting trick it has been a victim of at least in v6.2.0-SNAPSHOT. (Mention the exact name of the culprit)_
 
-This challenge follows [Forgotten Developer Backup](#forgotten-developer-backup-sensitive-data-exposure).
+This challenge follows the [Forgotten Developer Backup](#forgotten-developer-backup-sensitive-data-exposure) challenge.
 
 Inspect [package.json.bak](misc/package.json.bak). It is for `v6.2.0-SNAPSHOT`!
 
@@ -240,7 +240,9 @@ Submit `epilogue-js` into the Feedback form.
 ## Nested Easter Egg (Cryptographic Issues)
 _Apply some advanced cryptanalysis to find the real easter egg._
 
-This challenge follows [Easter Egg](#easter-egg-broken-access-control). The goal is to decrypt:
+This challenge follows the [Easter Egg](#easter-egg-broken-access-control) challenge.
+ 
+The goal is to decrypt:
 ```
 L2d1ci9xcmlmL25lci9mYi9zaGFhbC9ndXJsL3V2cS9uYS9ybmZncmUvcnR0L2p2Z3V2YS9ndXIvcm5mZ3JlL3J0dA==
 ```

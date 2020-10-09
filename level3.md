@@ -518,8 +518,7 @@ _Upload a file larger than 100 kB._
 
 The file size is validated with JavaScript. We can easily bypass using curl:
 ```
-BEARER='eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9. ..'
-curl -v -i -X POST -H "Authorization: Bearer $BEARER" -F 'file=@150kb.txt' https://vernjan-juice-shop.herokuapp.com/file-upload
+curl -v -i -X POST -F 'file=@misc/150kb.txt' https://vernjan-juice-shop.herokuapp.com/file-upload
 ```
 
 Just make sure the file is not larger than `200 kB` (this is server-side validated).
@@ -527,12 +526,12 @@ Just make sure the file is not larger than `200 kB` (this is server-side validat
 ## Upload Type (Improper Input Validation)
 _Upload a file that has no .pdf or .zip extension._
 
-The same as [Upload Size](#upload-size-improper-input-validation) challenge.
+The same as [Upload Size](#upload-size-improper-input-validation) challenge (the extension is `.txt`).
 
 ## XXE Data Access (XXE)
 _Retrieve the content of `C:\Windows\system.ini` or `/etc/passwd` from the server._
 
-Start with [](level2.md#deprecated-interface-security-misconfiguration) challenge.
+This challenge follows the [Deprecated Interface](level2.md#deprecated-interface-security-misconfiguration) challenge.
 
 Upload the following payload:
 ```xml
