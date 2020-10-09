@@ -259,6 +259,12 @@ This is rather easy.
 
 Call `GET /the/devs/are/so/funny/they/hid/an/easter/egg/within/the/easter/egg`
 
+## Poison Null Byte (Improper Input Validation)
+_Bypass a security control with a Poison Null Byte to access a file not meant for your eyes._
+
+The solution is described in [Easter Egg](#easter-egg-broken-access-control) challenge (_this was not a standalone
+challenge until `v12.0.0`_).
+
 ## Reset Bender's Password (Broken Authentication)
 _Reset Bender's password via the Forgot Password mechanism with the original answer to his security question._
 
